@@ -1,6 +1,6 @@
 // This model contains fictional sample data only. It has no service integration.
 export const STORE_KEY = 'proof-desk-sample-v1';
-export const OFFER = 'Planned offer: US$29 every 30 days; up to 100 new proof orders per rolling 30-day window; 2 GiB cumulative storage/shop; 10 MiB/file; 100 revisions/job. Prelaunch, not available to install or buy here.';
+export const OFFER = 'Planned offer: US$29 every 30 days; up to 100 new proof orders per rolling 30-day window; 500 MB cumulative storage/shop; 10 MiB/file; 100 revisions/job. Prelaunch, not available to install or buy here.';
 export function artwork(kind, tone = 'fern') {
   const color = tone === 'ink' ? '#28323a' : '#376048';
   return kind === 'sticker'

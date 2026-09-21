@@ -4,6 +4,6 @@ A fictional, browser-only demonstration of reviewing and releasing a two-item ar
 
 Deploy as a Render Static Site using the included render.yaml. It publishes only public/. There are no dependencies, environment variables, credentials, database or backend. Auto-deploy is off. No cron is required for this static sample. This does not configure hosting or persistent storage for the full SaaS.
 
-The four sample files are unchanged from the reviewed Proof Desk source at bd7348adbaac2f30e6048370f43b7d5bbf0a8f78 (runtime 7da4fd75aab223ae7151abcea17b335ca0395f2c).
+The sample is based on reviewed Proof Desk runtime 7da4fd75aab223ae7151abcea17b335ca0395f2c. On 21 September 2026, the owner approved changing the planned storage allowance from 2 GiB to 500 MB per shop; the visible offer and feedback export now match that decision. The real SaaS migration is separate.
 
 Render reference: https://render.com/docs/static-sites and https://render.com/docs/blueprint-spec
