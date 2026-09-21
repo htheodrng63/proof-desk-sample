@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <title>Try a sample order · Proof Desk</title>
+  <meta name="description" content="Explore a sample artwork approval workflow for a two-item sticker and label order. No signup, uploads, emails, or Shopify connection.">
+  <link rel="stylesheet" href="./sample.css">
+  <script type="module" src="./sample.js"></script>
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to sample order</a>
+<header><div class="brand"><span class="mark" aria-hidden="true">p<span>·</span></span>Proof Desk <span class="tag">Interactive sample</span></div><button id="reset" class="quiet">Reset sample</button></header>
+<main>
+  <section class="intro">
+    <div><p class="eyebrow">ARTWORK → APPROVAL → PRODUCTION</p><h1>Two items. One clear handoff.</h1><p class="lede">One item is approved. The other needs a change.<br>Try revising the proof, making the customer’s decision, and releasing the order.</p></div>
+    <aside class="boundary"><strong>A sample you can change.</strong><p>No signup, uploads, emails, payments, or Shopify changes. Everything stays in this browser tab. Use fictional details only.</p><p id="storage-note">Your sample is saved for this tab’s session.</p></aside>
+  </section>
+  <p id="announcement" class="notice" role="status" aria-live="polite">Start with the packaging label: the sample customer asked for a matte finish.</p>
+  <section id="workspace" class="workspace" aria-label="Sample order workspace" tabindex="-1">
+    <div class="order-head"><div><p class="eyebrow">SAMPLE ORDER #1001</p><h2>The Fern Studio</h2></div><p id="order-state" class="order-state"></p></div>
+    <div class="workspace-grid"><aside class="items" aria-label="Items requiring a proof"><p class="eyebrow">2 ITEMS TO CHECK</p><div id="item-list"></div><p class="item-help">A customer’s approval belongs to one artwork and specification revision.</p></aside>
+    <div class="detail"><nav class="view-switch" aria-label="Choose a sample role"><button id="shop-view" aria-pressed="true">1. Shop workspace</button><button id="customer-view" aria-pressed="false">2. Customer preview</button></nav><div id="item-detail"></div></div></div>
+    <div class="handoff"><div><h2>3. Release the sample order</h2><p id="release-help"></p></div><div class="handoff-actions"><button id="release" class="primary" disabled>Release both items</button><button id="packet" class="secondary" hidden>Download SAMPLE packet</button></div></div>
+  </section>
+  <section class="next-step"><div><p class="eyebrow">WOULD THIS FIT YOUR SHOP?</p><h2>Take your feedback with you.</h2><p>Download a short note to share with the person who invited you. Nothing is submitted or sent from this page.</p><p class="offer"><strong>Planned offer: US$29 every 30 days</strong><br>Up to 100 new proof orders per 30-day window. Revisions do not use another order. 2 GiB cumulative storage per shop · 10 MiB per file · 100 revisions per job.</p><p class="muted">The real app is prelaunch and is not available to install or buy here. This sample does not test real file upload, email delivery, store sync, or payment.</p></div><form id="feedback-form"><label for="interest">Your reaction to the planned offer</label><select id="interest"><option value="Not decided">Not decided</option><option>Interested in discussing a paid pilot when ready</option><option>Useful, but the offer does not fit</option><option>My current process works better</option></select><label for="feedback">What works, or what would stop you?</label><textarea id="feedback" rows="4" maxlength="1500" placeholder="For example: We lose track of changes across email threads…"></textarea><button class="secondary" type="submit">Download feedback note</button><small>No contact details needed. Keep customer data out of this note.</small></form></section>
+</main>
+<footer>Proof Desk by VietNXT · A fictional workflow sample, not a live production record.</footer>
+<noscript><p class="notice">This interactive sample needs JavaScript. No data has been sent.</p></noscript>
+</body>
+</html>

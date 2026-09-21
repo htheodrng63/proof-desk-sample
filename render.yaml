@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: proof-desk-sample
+    runtime: static
+    buildCommand: "true"
+    staticPublishPath: ./public
+    autoDeployTrigger: "off"
