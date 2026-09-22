@@ -8,7 +8,12 @@ try {
   const raw = sessionStorage.getItem(STORE_KEY);
   if (raw) { const saved = restore(raw); if (saved) state = saved; else sessionStorage.removeItem(STORE_KEY); }
 } catch { storageAvailable = false; }
+function updateFeedbackEmail() {
+  const body = `Proof Desk sample feedback\n\nOffer reaction: ${state.interest}\n\n${state.feedback.trim() || '(Write your feedback here)'}\n\nFictional sample only. Interest is not an order or payment.`;
+  $('email-feedback').href = 'mailto:vietnxtshopify@gmail.com?subject=Proof%20Desk%20sample%20feedback&body=' + encodeURIComponent(body);
+}
 function persist() {
+  updateFeedbackEmail();
   try { sessionStorage.setItem(STORE_KEY,JSON.stringify(state)); } catch { storageAvailable = false; }
   $('storage-note').textContent = storageAvailable ? 'Your sample is saved for this tab’s session.' : 'Tab storage is unavailable. You can still try everything; refreshing will reset your sample.';
 }
@@ -75,14 +80,14 @@ $('release').addEventListener('click',() => { if (hasUnsavedSpecs()) return; run
 $('packet').addEventListener('click',() => run(() => { if (hasUnsavedSpecs()) return; download('SAMPLE-proof-desk-order-1001.json',JSON.stringify(packet(state),null,2),'application/json'); announce('Sample packet download requested. It contains the released revisions, specifications, and SVG artwork; it is not a real production record.'); }));
 $('reset').addEventListener('click',() => {
   try {sessionStorage.removeItem(STORE_KEY);} catch {storageAvailable = false;}
-  state = initialState(); $('interest').value = state.interest; $('feedback').value = ''; render(); announce('Sample reset: stickers approved, packaging labels need a matte finish.'); $('shop-view').focus();
+  state = initialState(); updateFeedbackEmail(); $('interest').value = state.interest; $('feedback').value = ''; render(); announce('Sample reset: stickers approved, packaging labels need a matte finish.'); $('shop-view').focus();
 });
 $('feedback').value = state.feedback;
 $('interest').value = state.interest;
 $('feedback').addEventListener('input',() => {state.feedback=$('feedback').value;persist();});
 $('interest').addEventListener('change',() => {state.interest=$('interest').value;persist();});
 $('feedback-form').addEventListener('submit',event => {event.preventDefault();run(() => {
-  const content = ['PROOF DESK — SAMPLE WORKFLOW FEEDBACK','',OFFER,'',`Offer reaction: ${state.interest}`,'',`My feedback: ${state.feedback.trim() || '(No note added)'}`,'',`Sample result: ${state.released ? 'Both items released' : 'Not yet released'}`,...state.items.map(item=>`${item.title}: v${item.revision}, ${labels[item.status]}, ${item.specs.quantity} units, ${item.specs.width} × ${item.specs.height} mm, ${item.specs.material}, ${item.specs.finish}`),'','Fictional workflow only. This note was downloaded locally, not sent. Share it with the person who invited you if you choose. Interest is not an order or payment.'].join('\n');
+  const content = ['PROOF DESK — SAMPLE WORKFLOW FEEDBACK','',OFFER,'',`Offer reaction: ${state.interest}`,'',`My feedback: ${state.feedback.trim() || '(No note added)'}`,'',`Sample result: ${state.released ? 'Both items released' : 'Not yet released'}`,...state.items.map(item=>`${item.title}: v${item.revision}, ${labels[item.status]}, ${item.specs.quantity} units, ${item.specs.width} × ${item.specs.height} mm, ${item.specs.material}, ${item.specs.finish}`),'','Fictional workflow only. This note was downloaded locally, not sent. Email it to vietnxtshopify@gmail.com or share it with the person who invited you if you choose. Interest is not an order or payment.'].join('\n');
   download('proof-desk-feedback.txt',content,'text/plain;charset=utf-8'); announce('Feedback note download requested. Nothing was sent; you can share the file yourself.');
 });});
 persist(); render();
